@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Letter</title>
+  <title>HBBB </title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -180,12 +180,12 @@
     <div class="envelope" id="envelope"></div>
     <div class="flap" id="flap"></div>
     <div class="letter" id="letter">
-      <p>My Love,</p>
-      <p>Click below to open your birthday letter 💌</p>
+      <p>Hello Baby,</p>
+      <p>Tekan untuk buka surat 💌</p>
     </div>
   </div>
-
-  <button id="openMessage" class="button">Open Letter</button>
+  
+  <button id="openMessage" class="button">Open</button>
 
   <div id="messageBox"></div>
 
@@ -200,41 +200,75 @@
     const messageBox = document.getElementById("messageBox");
     const secondBtn = document.getElementById("secondLetterBtn");
     const secondMsg = document.getElementById("secondMessage");
-
+    
+    function revealWishLines() {
+        const lines = document.querySelectorAll(".birthday-wish .line");
+        lines.forEach((line, index) => {
+          setTimeout(() => {
+            line.classList.add("show");
+          }, index * 1200); // 1.2s delay between lines
+        });
+      }
+      
     document.getElementById("envelopeBox").onclick = () => {
       flap.style.transform = "rotateX(180deg)";
       letter.classList.add("show-letter");
       setTimeout(() => openBtn.style.display = "block", 1200);
     };
 
+
+
     openBtn.onclick = () => {
       const msg = `
+      
         <div class="image-box">
-          <img src="yourphoto.jpg" alt="us photo" />
+          <img src="assets/images/we.jpeg" alt="kita" />
         </div>
-        <h2>Happy Birthday, My Love 🎉💕</h2>
-        <p>From the moment I met you, my days have been softer, happier, and more meaningful.</p>
-        <p>You deserve every good thing this world can offer, and I will always do my best to give you joy, comfort, and love.</p>
-        <p>Today is special because <b>you</b> are special.</p>
+        <div class="birthday-wish reveal">
+          <p class="line">Hi future husband,</p>
 
-        <h3>🌷 My Birthday Wishes for You</h3>
-        <p>I wish for your heart to always feel light. I wish for your dreams to feel closer. I wish for your days to be filled with peace, laughter, and warmth.</p>
-        <p>And I wish to be by your side through it all.</p>
+          <p class="line">
+            Happy birthday to you. I nak bagi typical wish — semoga u dipanjangkan umur
+            dan dimurahkan rezeki, semoga kita boleh kahwin cepat-cepat dan semoga kita boleh hidup sampai tua bersama sama 
+          </p>
 
-        <h3>🎁 Our Birthday Date Plan</h3>
-        <ul>
-          <li>💖 A surprise little gift when we meet</li>
-          <li>🍽️ Dinner at your favorite spot</li>
-          <li>🌌 A quiet walk together after</li>
-          <li>📸 A cute photo session to keep the memories</li>
-        </ul>
+          <p class="line">
+            Semoga u menjadi bakal suami yang <strong>terrrpaling baik</strong> untuk i
+            dan menjadi bakal bapak yang penyayang untuk anak-anak kita nanti.
+          </p>
 
-        <p>I love you endlessly. 💗</p>
+          <p class="line">
+            Terima kasih sebab selalu ada dengan i, jaga i, sayang i.
+            Terima kasih bertahan dan tak give up dengan perangai i yang selalu merajuk.
+          </p>
+
+          <p class="line">
+            Harap u bersabar dengan i sebab kita ada 50 lebih tahun lagi untuk u menghadapi semua perangai merajuk i :3
+          </p>
+
+          <p class="line">
+            Terima kasih sebab selalu buat effort supaya i happy.
+            Thank you for everything 
+            I appreciate it a lot.
+          </p>
+
+          <p class="line love-line">
+            I love you a lot — like <strong>A LOTTTTT!!</strong> 💖
+            I harap sangat yang kita boleh bercinta sampai tua dan anak-anak kita nampak betapa sweet nya mak bapak dorang walaupon dah tua 😌.
+          </p>
+
+          <p class="line signature">
+            Happy birthday my love ❤️
+          </p>
+        </div>
+
       `;
 
       messageBox.innerHTML = msg;
       messageBox.style.display = "block";
       openBtn.style.display = "none";
+
+      revealWishLines();
 
       setTimeout(() => {
         secondBtn.style.display = "block";
@@ -243,11 +277,31 @@
 
     secondBtn.onclick = () => {
       const msg2 = `
-        <h2>One More Letter for You 💌</h2>
-        <p>If I could put into words how much you mean to me, I would need more than a lifetime.</p>
-        <p>You make my world softer. You make my days brighter. You make everything feel worth it.</p>
-        <p>I hope today makes you feel as loved as you make me feel every single day.</p>
-        <p>Happy Birthday, my heart. 💖</p>
+        <h2>Our Birthday Day Plan 💕</h2>
+
+        <div class="day-plan">
+          <p class="plan-line">8:30 AM – Pickup your princess 👑</p>
+          <p class="plan-line">9:00 AM – Birthday kisses 😘</p>
+          <p class="plan-line">10:00 AM – We go eat sedap-sedap 🍽️🤍</p>
+          <p class="plan-line">
+            12:00 PM – You choose:
+            <br />🎤 Karaoke
+            <br />📸 Photo booth
+            <br />or… we do BOTH 😌✨
+          </p>
+          <p class="plan-line">
+            2:00 PM – Send your princess home,
+            <br />last birthday kisses & hugs 🤍💋
+          </p>
+
+          <hr />
+
+          <p class="attire">
+            👗 <strong>Attire:</strong><br />
+            Brown shirt & white pants 🤎🤍
+          </p>
+        </div>
+
       `;
 
       secondMsg.innerHTML = msg2;
